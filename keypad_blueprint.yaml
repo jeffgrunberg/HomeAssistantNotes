@@ -9,7 +9,7 @@ blueprint:
       selector:
         device:
           manufacturer: Ring
-          integration: hubitat
+          integration: Hubitat
     alarm:
       name: Alarm Control Panel entity
       description: The Alarm Control Panel to synchronize the keypad with
