@@ -8,7 +8,6 @@ blueprint:
       description: The device entry for the Ring keypad
       selector:
         device:
-          manufacturer: Ring
           integration: Hubitat
     alarm:
       name: Alarm Control Panel entity
