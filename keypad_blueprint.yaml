@@ -9,7 +9,7 @@ blueprint:
       selector:
         device:
           manufacturer: Ring
-          integration: zwave_js
+          integration: hubitat
     alarm:
       name: Alarm Control Panel entity
       description: The Alarm Control Panel to synchronize the keypad with
@@ -43,49 +43,49 @@ trace:
   stored_traces: 0
 trigger:
   - platform: event
-    event_type: "zwave_js_notification"
+    event_type: "hubitat_event"
     event_data:
       command_class: 111
       device_id: !input keypad
       event_type: 2
     id: code_entered
   - platform: event
-    event_type: "zwave_js_notification"
+    event_type: "hubitat_event"
     event_data:
       command_class: 111
       device_id: !input keypad
       event_type: 3
     id: keypad_disarm
   - platform: event
-    event_type: "zwave_js_notification"
+    event_type: "hubitat_event"
     event_data:
       command_class: 111
       device_id: !input keypad
       event_type: 5
     id: keypad_arm_away
   - platform: event
-    event_type: "zwave_js_notification"
+    event_type: "hubitat_event"
     event_data:
       command_class: 111
       device_id: !input keypad
       event_type: 6
     id: keypad_arm_home
   - platform: event
-    event_type: zwave_js_notification
+    event_type: hubitat_event
     event_data:
       command_class: 111
       device_id: !input 'keypad'
       event_type: 16
     id: keypad_fire
   - platform: event
-    event_type: zwave_js_notification
+    event_type: hubitat_event
     event_data:
       command_class: 111
       device_id: !input 'keypad'
       event_type: 17
     id: keypad_police
   - platform: event
-    event_type: zwave_js_notification
+    event_type: hubitat_event
     event_data:
       command_class: 111
       device_id: !input 'keypad'
@@ -169,7 +169,7 @@ action:
               {% endif %}
         - wait_for_trigger:
             - platform: event
-              event_type: zwave_js_notification
+              event_type: hubitat_event
               event_data:
                 command_class: 111
                 device_id: !input keypad
